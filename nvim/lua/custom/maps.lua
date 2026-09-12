@@ -14,7 +14,7 @@ map(all, "<kEnter>", "<Enter>")
 
 
 
-isMouseOn = false
+isMouseOn = true
 
 function toggle_mouse()
     isMouseOn = not isMouseOn
@@ -58,4 +58,11 @@ map(nrm, "<C-Del>", "WBdW")
 
 
 map(ins, "<C-W>", "<C-O><C-W>")
+
+
+map(all, "<C-S>", "<CMD>:w<CR>")
+
+-- function save_as()
+--     filename = Snacks.input.input()
+-- end
 

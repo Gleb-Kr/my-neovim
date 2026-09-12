@@ -40,36 +40,46 @@ return {
     },
     
     
-    -- I am too lazy to configure this myself, hope this won't break
+    -- I am too lazy to configure this all myself, hope this won't break
     {
         "folke/snacks.nvim",
         name = "snacks",
         priority = 9999,
         lazy = false,
-          ---@type snacks.Config
-          opts = {
+        ---@type snacks.Config
+        opts = {
             bigfile = { enabled = true },
+            bufdelete = { enabled = true },
             dashboard = { enabled = true },
+            debug = { enabled = true },
+            dim = { enabled = true },
             explorer = { enabled = true },
+            image = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
+            layout = { enabled = true },
             notifier = {
-              enabled = true,
-              timeout = 3000,
+                enabled = true,
+                timeout = 3000,
             },
             picker = { enabled = true },
             quickfile = { enabled = true },
+            rename = { enabled = true },
             scope = { enabled = true },
             scroll = { enabled = true },
             statuscolumn = { enabled = true },
+            terminal = { enabled = true },
+            util = { enabled = true },
             words = { enabled = true },
             styles = {
-              notification = {
-                -- wo = { wrap = true } -- Wrap notifications
-              }
-            }
-          },
-          keys = {
+                notification = {
+                    -- wo = { wrap = true } -- Wrap notifications
+                }
+            },
+            win = { enabled },
+            zen = { enabled = true },
+        },
+        keys = {
             -- Top Pickers & Explorer
             { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
             { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -223,4 +233,17 @@ return {
         event = "InsertEnter"   ,
         config = true           ,
     },
+    
+    
+    -- swenv.nvim               -- for Python enviroments (maybe)
+    -- nvim-jqx                 -- for JSON files
+    -- csharp.nvim              -- for C#
+    -- whichpy.nvim             -- for more Python (interpreter switching)
+    -- python-import.nvim       -- for Python importing treesitting
+    -- nvim-unity.nvim          -- for Unity support
+    -- copy-python-path.nvim    -- for copying references of symbols
+    -- classlayout.nvim         -- for visualizing C/C++ OOP layout
+    -- cppman.nvim              -- for searching C++ manual
+    -- telescope.nvim           -- for you know what this is
 }
+
