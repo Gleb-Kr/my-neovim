@@ -2,7 +2,9 @@ ex  = vim.cmd
 map = vim.keymap.set
 
 all = {"n", "v", "i"}    -- ALL
-noi = {"n", "v"}         -- NOt Insert
+nmv = {"n", "v"}         -- NorMal & Visual
+nin = {"n", "i"}         -- Normal & INsert
+vin = {"v", "i"}         -- Visual & INsert
 nrm = "n"                -- NoRMal
 vis = "v"                -- VISual
 ins = "i"                -- INSert
@@ -11,6 +13,7 @@ ins = "i"                -- INSert
 
 
 map(all, "<kEnter>", "<Enter>")
+ex("map <kEnter> <Enter>")
 
 
 
@@ -28,6 +31,35 @@ function toggle_mouse()
 end
 
 map(all, "<F1>", "<CMD>lua toggle_mouse()<CR>")
+
+areArrowsOn = false
+
+function toggle_arrows()
+    areArrowsOn = not areArrowsOn
+    if areArrowsOn then
+        ex("imap <Right> <Right>")
+        ex("imap <Up> <Up>")
+        ex("imap <Down> <Down>")
+        ex("imap <Left> <Left>")
+        ex("map <Right> <Right>")
+        ex("map <Up> <Up>")
+        ex("map <Down> <Down>")
+        ex("map <Left> <Left>")
+        ex("echo \"~Arrows are now ON~\"")
+    else
+        ex("imap <Right> <Nop>")
+        ex("imap <Up> <Nop>")
+        ex("imap <Down> <Nop>")
+        ex("imap <Left> <Nop>")
+        ex("map <Right> <Nop>")
+        ex("map <Up> <Nop>")
+        ex("map <Down> <Nop>")
+        ex("map <Left> <Nop>")
+        ex("echo \"~Arrows are now OFF~\"")
+    end
+end
+
+map(all, "<F13>", "<CMD>lua toggle_arrows()<CR>")
 
 
 map(all, "<F9>" , "<CMD>e .<CR>")
