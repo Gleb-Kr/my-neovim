@@ -30,6 +30,6 @@
   "stcursorword": { "branch": "main", "commit": "ab099f1682a0b251cda8f089d028a31426b83a06" },
   "structlog.nvim": { "branch": "main", "commit": "45b26a2b1036bb93c0e83f4225e85ab3cee8f476" },
   "ts-autotag": { "branch": "main", "commit": "88c1453db4ba7dd24131086fe51fdf74e587d275" },
-  "web-devicons": { "branch": "master", "commit": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb" },
+  "web-devicons": { "branch": "master", "commit": "914decffe650296c87312c53b7933ecb86718499" },
   "which-key": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
