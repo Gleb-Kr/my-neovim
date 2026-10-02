@@ -1,5 +1,9 @@
+dap = require("dap")
+
+
+
 ex  = vim.cmd
-map = vim.keymap.set
+wk = require("which-key")
 
 
 all = {"n", "v", "i"}    -- ALL
@@ -16,8 +20,11 @@ trm = "t"                -- TeRMinal
 
 
 
-map(all, "<kEnter>", "<Enter>")
+vim.keymap.set({"n", "v", "i", "t"}, "<kEnter>", "<Enter>")
 ex("map <kEnter> <Enter>")
+ex("imap <kEnter> <Enter>")
+ex("vmap <kEnter> <Enter>")
+ex("tmap <kEnter> <Enter>")
 
 
 
@@ -34,7 +41,10 @@ function toggle_mouse()
     end
 end
 
-map(all, "<F1>", "<CMD>lua toggle_mouse()<CR>")
+wk.add({
+    mode = all,
+    {"<F1>", toggle_mouse},
+})
 
 areArrowsOn = true
 
@@ -63,78 +73,220 @@ function toggle_arrows()
     end
 end
 
-map(all, "<F13>", "<CMD>lua toggle_arrows()<CR>")
+wk.add({
+    mode = all,
+    {"<F13>", toggle_arrows},
+})
 
 
-map(nmv, "<F5>", "<CMD>w<CR><CMD>RunCode<CR><Insert>")
-map(all, "<F17>", "<CMD>w<CR><CMD>RunClose<CR>")
-map(nmv, "<F29>", "<CMD>RunCode<CR><Insert>")
-map(all, "<F41>", "<CMD>RunClose<CR>")
+wk.add({
+    mode = nmv,
+    {"<F5>", "<CMD>w<CR><CMD>RunCode<CR><Insert>"},
+})
+wk.add({
+    mode = all,
+    {"<F17>", "<CMD>w<CR><CMD>RunClose<CR>"},
+})
+wk.add({
+    mode = nmv,
+    {"<F29>", "<CMD>RunCode<CR><Insert>"},
+})
+wk.add({
+    mode = all,
+    {"<F41>", "<CMD>RunClose<CR>"},
+})
 
-map(ins, "<F5>", "<CMD>w<CR><CMD>RunCode<CR>")
-map(ins, "<F29>", "<CMD>w<CR><CMD>RunClose<CR>")
-
-
-map(all, "<F9>" , "<CMD>e .<CR>")
-map(all, "<F21>", "<CMD>e ..<CR>")
-map(all, "<F33>", "<CMD>e ~/<CR>")
-map(all, "<F45>", "<CMD>e /<CR>")
-
-map(all, "<F57>", "<CMD>term<CR>")
-
-
-map(all, "<F10>", "<CMD>nohl<CR>")
-
-
-
-map(ins, "<C-z>"  , "<C-o>u")
-map(ins, "<C-S-z>", "<C-o><C-R>")
-
-
-map(ins, "<C-e>", "<C-o><C-e>")
-map(ins, "<C-y>", "<C-o><C-y>")
+wk.add({
+    mode = ins,
+    {"<F5>", "<CMD>w<CR><CMD>RunCode<CR>"},
+})
+wk.add({
+    mode = ins,
+    {"<F29>", "<CMD>w<CR><CMD>RunClose<CR>"},
+})
 
 
-map(ins, "<C-BS>" , "<C-o>w<C-o>b<C-o>dw")
-map(ins, "<C-Del>", "<C-o>W<C-o>B<C-o>dW")
-
-map(nrm, "<C-BS>" , "wbdw")
-map(nrm, "<C-Del>", "WBdW")
+-- For <F6> key, see ~/.config/nvim/lua/custom/ndap.lua
 
 
-map(all, "<C-s>", "<CMD>w<CR>")
+wk.add({
+    mode = all,
+    {"<F9>", "<CMD>e .<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<F21>", "<CMD>e ..<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<F33>", "<CMD>e ~/<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<F45>", "<CMD>e /<CR>"},
+})
+
+wk.add({
+    mode = all,
+    {"<F57>", "<CMD>term<CR>"},
+})
 
 
-map(nmv, "<M-h>", "<C-w>h")
-map(nmv, "<M-j>", "<C-w>j")
-map(nmv, "<M-k>", "<C-w>k")
-map(nmv, "<M-l>", "<C-w>l")
 
-map(ins, "<M-h>", "<C-o><C-w>h")
-map(ins, "<M-j>", "<C-o><C-w>j")
-map(ins, "<M-k>", "<C-o><C-w>k")
-map(ins, "<M-l>", "<C-o><C-w>l")
-
-map(trm, "<M-h>", "<C-Bslash><C-o><C-w>h")
-map(trm, "<M-j>", "<C-Bslash><C-o><C-w>j")
-map(trm, "<M-k>", "<C-Bslash><C-o><C-w>k")
-map(trm, "<M-l>", "<C-Bslash><C-o><C-w>l")
-
-map(nmv, "<M-S-h>", "<C-w>H")
-map(nmv, "<M-S-j>", "<C-w>J")
-map(nmv, "<M-S-k>", "<C-w>K")
-map(nmv, "<M-S-l>", "<C-w>L")
-
-map(ins, "<M-S-h>", "<C-o><C-w>H")
-map(ins, "<M-S-j>", "<C-o><C-w>J")
-map(ins, "<M-S-k>", "<C-o><C-w>K")
-map(ins, "<M-S-l>", "<C-o><C-w>L")
-
-map(trm, "<M-S-h>", "<C-Bslash><C-o><C-w>H")
-map(trm, "<M-S-j>", "<C-Bslash><C-o><C-w>J")
-map(trm, "<M-S-k>", "<C-Bslash><C-o><C-w>K")
-map(trm, "<M-S-l>", "<C-Bslash><C-o><C-w>L")
+wk.add({
+    mode = nrm,
+    {"<Esc>", "<CMD>nohl<CR>"},
+})
 
 
-map(all, "<C-q>", "<CMD>q<CR>")
+wk.add({
+    mode = ins,
+    {"<C-e>", "<C-o><C-e>"},
+})
+wk.add({
+    mode = ins,
+    {"<C-y>", "<C-o><C-y>"},
+})
+
+
+wk.add({
+    mode = ins,
+    {"<C-BS>", "<C-o>w<C-o>b<C-o>dw"},
+})
+wk.add({
+    mode = ins,
+    {"<C-Del>", "<C-o>W<C-o>B<C-o>dW"},
+})
+
+wk.add({
+    mode = nrm,
+    {"<C-BS>", "wbdw"},
+})
+wk.add({
+    mode = nrm,
+    {"<C-Del>", "WBdW"},
+})
+
+
+wk.add({
+    mode = all,
+    {"<C-s>", "<CMD>w<CR>"},
+})
+
+
+wk.add({
+    mode = nmv,
+    {"<M-h>", "<C-w>h"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-j>", "<C-w>j"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-k>", "<C-w>k"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-l>", "<C-w>l"},
+})
+
+wk.add({
+    mode = ins,
+    {"<M-h>", "<C-o><C-w>h"},
+})
+wk.add({
+    mode = ins,
+    {"<M-j>", "<C-o><C-w>j"},
+})
+wk.add({
+    mode = ins,
+    {"<M-k>", "<C-o><C-w>k"},
+})
+wk.add({
+    mode = ins,
+    {"<M-l>", "<C-o><C-w>l"},
+})
+
+wk.add({
+    mode = trm,
+    {"<M-h>", "<C-Bslash><C-o><C-w>h"},
+})
+wk.add({
+    mode = trm,
+    {"<M-j>", "<C-Bslash><C-o><C-w>j"},
+})
+wk.add({
+    mode = trm,
+    {"<M-k>", "<C-Bslash><C-o><C-w>k"},
+})
+wk.add({
+    mode = trm,
+    {"<M-l>", "<C-Bslash><C-o><C-w>l"},
+})
+
+wk.add({
+    mode = nmv,
+    {"<M-S-h>", "<C-w>H"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-S-j>", "<C-w>J"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-S-k>", "<C-w>K"},
+})
+wk.add({
+    mode = nmv,
+    {"<M-S-l>", "<C-w>L"},
+})
+
+wk.add({
+    mode = ins,
+    {"<M-S-h>", "<C-o><C-w>H"},
+})
+wk.add({
+    mode = ins,
+    {"<M-S-j>", "<C-o><C-w>J"},
+})
+wk.add({
+    mode = ins,
+    {"<M-S-k>", "<C-o><C-w>K"},
+})
+wk.add({
+    mode = ins,
+    {"<M-S-l>", "<C-o><C-w>L"},
+})
+
+wk.add({
+    mode = trm,
+    {"<M-S-h>", "<C-Bslash><C-o><C-w>H"},
+})
+wk.add({
+    mode = trm,
+    {"<M-S-j>", "<C-Bslash><C-o><C-w>J"},
+})
+wk.add({
+    mode = trm,
+    {"<M-S-k>", "<C-Bslash><C-o><C-w>K"},
+})
+wk.add({
+    mode = trm,
+    {"<M-S-l>", "<C-Bslash><C-o><C-w>L"},
+})
+
+
+wk.add({
+    mode = all,
+    {"<C-q>", "<CMD>q<CR>"},
+})
+
+
+-- Know that <Plus> key was mapped by:
+-- wk.add({
+--     mode = nrm,
+--     {"+", "<CMD>DapToggleBreakpoint<CR>"},
+-- })
+-- In the file ~/.config/nvim/lua/custom/ndap.lua
 

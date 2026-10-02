@@ -128,7 +128,7 @@ function get_file_size_bg()
         sizeColor = color("red")
     
     else
-        sizeColor = color("bg")
+        sizeColor = color("fg")
     end
     
     
@@ -405,14 +405,7 @@ function get_percent()
     
     
     else
-        percent = math.floor(vim.fn.line(".") / vim.fn.line("$") * 100)
-        
-        if percent < 10 then
-            return " " .. percent .. "%"
-        
-        else
-            return percent .. "%"
-        end
+        return math.floor(vim.fn.line("w0") / (vim.fn.line("$") - vim.api.nvim_win_get_height(0)) * 100) .. "%"
     end
 end
 
