@@ -1,6 +1,6 @@
-require("custom.stln")
-require("custom.maps")
+require("custom.statusline")
+require("custom.mappings")
 require("custom.misc")
-require("custom.echo")
-require("custom.ndap")
+require("custom.sounds")
+require("custom.nvim-dap")
 
