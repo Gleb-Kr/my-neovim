@@ -448,6 +448,83 @@ wk.add({
 
 wk.add({
     mode = all,
+    {"<M-t>", "<CMD>tabnew<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-c>", "<CMD>BufferClose<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-S-C>", "<CMD>BufferRestore<CR>"},
+})
+
+wk.add({
+    mode = all,
+    {"<M-1>", "<CMD>BufferGoto 1<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-2>", "<CMD>BufferGoto 2<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-3>", "<CMD>BufferGoto 3<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-4>", "<CMD>BufferGoto 4<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-5>", "<CMD>BufferGoto 5<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-6>", "<CMD>BufferGoto 6<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-7>", "<CMD>BufferGoto 7<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-8>", "<CMD>BufferGoto 8<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-9>", "<CMD>BufferGoto 9<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-0>", "<CMD>BufferLast<CR>"},
+})
+
+wk.add({
+    mode = all,
+    {"<M-,>", "<CMD>BufferPrev<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-.>", "<CMD>BufferNext<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-S-,>", "<CMD>BufferMovePrev<CR>"},
+})
+wk.add({
+    mode = all,
+    {"<M-S-.>", "<CMD>BufferMoveNext<CR>"},
+})
+
+wk.add({
+    mode = all,
+    {"<M-p>", "<CMD>BufferPin<CR>"},
+})
+
+
+wk.add({
+    mode = all,
     {"<C-q>", "<CMD>q<CR>"},
 })
 
