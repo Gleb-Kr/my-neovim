@@ -18,7 +18,7 @@ wk.add({
 
 
 
-areSoundsOn = true
+areSoundsOn = false
 
 function toggle_sounds()
     areSoundsOn = not areSoundsOn
